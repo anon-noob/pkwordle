@@ -307,7 +307,7 @@ function handleSubmit(event) {
     // solution
     // Set random seed based on UTC date and pick from words
     
-    let trueSol = toChar(parseInt(words[randIndex]).toString());
+    let trueSol = toChar(parseInt('0x98c0c75a981').toString());
 
     // get elements
     var inputField = document.getElementById('input-field');
@@ -422,25 +422,25 @@ function result() {
     // banter
     switch (guessCount) {
         case 1:
-            document.getElementById("extra").textContent = "Then if a player that can cheat but cannot be proven, then he is not a cheater.";
+            document.getElementById("extra").textContent = "A sixth sense perhaps?";
             break;
         case 2:
-            document.getElementById("extra").textContent = "Lucky much?";
+            document.getElementById("extra").textContent = "Impressive guess!";
             break;
         case 3:
-            document.getElementById("extra").textContent = "Smooth play!";
+            document.getElementById("extra").textContent = "Noice *meow*, I MEAN, uh, I'm not the one meowing...";
             break;
         case 4:
-            document.getElementById("extra").textContent = "Great job parkourer!"
+            document.getElementById("extra").textContent = "Great job parkourer! You know what to do."
             break;
         case 5:
             document.getElementById("extra").textContent = "Made it, maybe a little bit too close.";
             break;
         case 6:
             if (gameState === "win") {
-                document.getElementById("extra").textContent = "You were this goddamn close!";
+                document.getElementById("extra").textContent = "Can't disappoint Hamm this time!";
             } else {
-                document.getElementById("extra").textContent = "Go back to manacube.";
+                document.getElementById("extra").textContent = "Mods, send this man to 4t pessi sd hell!";
             }
             break;
     }
