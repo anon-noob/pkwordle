@@ -307,7 +307,7 @@ function handleSubmit(event) {
     // solution
     // Set random seed based on UTC date and pick from words
     
-    let trueSol = toChar(parseInt('0x98c0c75a981').toString());
+    let trueSol = toChar(parseInt(words[randIndex]).toString());
 
     // get elements
     var inputField = document.getElementById('input-field');
@@ -415,32 +415,32 @@ function result() {
         
         case "lose":
             var displayCount = document.getElementById('count');
-            displayCount.textContent = `Lose! Word was ${toChar(parseInt(0x98c0c75a981).toString())}. Don't disappoint him!`
+            displayCount.textContent = `Lose! Word was ${toChar(parseInt(words[randIndex]).toString())}. Don't disappoint him!`
             break;
     }
 
     // banter
     switch (guessCount) {
         case 1:
-            document.getElementById("extra").textContent = "A sixth sense perhaps?";
+            document.getElementById("extra").textContent = "Stop looking at the source code.";
             break;
         case 2:
-            document.getElementById("extra").textContent = "Impressive guess!";
+            document.getElementById("extra").textContent = "Lucky!";
             break;
         case 3:
             document.getElementById("extra").textContent = "Noice *meow*, I MEAN, uh, I'm not the one meowing...";
             break;
         case 4:
-            document.getElementById("extra").textContent = "Great job parkourer! You know what to do."
+            document.getElementById("extra").textContent = "Great job!"
             break;
         case 5:
-            document.getElementById("extra").textContent = "Made it, maybe a little bit too close.";
+            document.getElementById("extra").textContent = "Maybe a little bit too close.";
             break;
         case 6:
             if (gameState === "win") {
-                document.getElementById("extra").textContent = "Can't disappoint Hamm this time!";
+                document.getElementById("extra").textContent = "Oh my G sus!";
             } else {
-                document.getElementById("extra").textContent = "Mods, send this man to 4t pessi sd hell!";
+                document.getElementById("extra").textContent = "You are going to manacube!";
             }
             break;
     }
