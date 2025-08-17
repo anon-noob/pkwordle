@@ -206,7 +206,7 @@
                 input.value = input.value.slice(0, -1);
             } else if (key === 'Enter') {
                 document.querySelector('form').requestSubmit();
-            } else if (input.value.length < 5 && /^[A-Z]$/.test(key)) {
+            } else if (input.value.length < 10 && /^[A-Z]$/.test(key)) {
                 input.value += key.toLowerCase();
             }
             input.focus();
