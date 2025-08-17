@@ -19,15 +19,16 @@
     <body>
         <h1>Parkour Wordle</h1>
         <h3>Instructions</h3>
-        <p>You have 6 attempts to guess a 5-letter word that is related to parkour.</p>
+        <p>You have 6 attempts to guess a 3-to-10-letter word that is related to parkour.</p>
         <p><span style="font-weight:bold; color: green">Green</span> letters mean the letter is in the right place. <span style="font-weight:bold; color: gold">Yellow</span> letters mean the letter is in the wrong place. <span style="font-weight:bold; color: gray">Gray</span> letters mean the word doesn't contain (any more of) those letters.</p>
+        <p>The rightmost tile will be <span style="font-weight:bold; color: green">green</span> if the length of the word is correct, otherwise it will be <span style="font-weight:bold; color: red">red</span>.</p>
     </body>
     
     <main>
         <table id="table">
             <thead>
                 <tr>
-                    <th colspan="5">Wordle</th>
+                    <th colspan="11">Parkour Wordle</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,12 @@
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="length-btn" disabled></button></td>
                 </tr>
                 <tr>
                     <td><button class="cell-btn" disabled></button></td>
@@ -44,6 +51,12 @@
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="length-btn" disabled></button></td>
                 </tr>
                 <tr>
                     <td><button class="cell-btn" disabled></button></td>
@@ -51,6 +64,12 @@
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="length-btn" disabled></button></td>
                 </tr>
                 <tr>
                     <td><button class="cell-btn" disabled></button></td>
@@ -58,6 +77,12 @@
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="length-btn" disabled></button></td>
                 </tr>
                 <tr>
                     <td><button class="cell-btn" disabled></button></td>
@@ -65,6 +90,12 @@
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="length-btn" disabled></button></td>
                 </tr>
                 <tr>
                     <td><button class="cell-btn" disabled></button></td>
@@ -72,6 +103,12 @@
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
                     <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="cell-btn" disabled></button></td>
+                    <td><button class="length-btn" disabled></button></td>
                 </tr>
             </tbody>
         </table>
@@ -96,10 +133,32 @@
                 border-color: #444;
             }
         }
+        .length-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border: 2px solid #bbb;
+            border-radius: 6px;
+            background: #ffffff9d;
+            color: #393939;
+            margin: 2px;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .length-btn {
+                background: #363636;
+                color: #eee;
+                border-color: #444;
+            }
+        }
+
         </style>
 
         <form method="get" onsubmit="handleSubmit(event)">
-            <input id="input-field" type="text" pattern="[a-zA-Z]+" minlength="5" maxlength="5" placeholder="Your word" required>
+            <input id="input-field" type="text" pattern="[a-zA-Z]+" minlength="3" maxlength="10" placeholder="Your word (3-10 characters)" required>
             <input id="submit" type="submit" name="submit" value="Enter">
         </form>
         
@@ -185,7 +244,9 @@
         </div>
 
         <script>
+let maxWordLength = 10;
 let guessHistory = {};
+let guessStatistics = {"green":0, "yellow":0, "gray":0, "length_red":0, "length_green":0};
 let gameState = "active";
 let guessCount = 0;
 let solution = "angle";
@@ -205,7 +266,7 @@ function readTextFile() {
             }
         };
 
-        xhr.open('GET', '5 letter words.txt', true);
+        xhr.open('GET', 'words_alpha.txt', true);
         xhr.send();
     });
 }
@@ -214,35 +275,16 @@ readTextFile()
 .then((value) => {
         console.log(`Loaded dictionary`);
         console.log(`The solution has been decided`);
+        console.log(`Looking at console is not going to help`);
+        console.log(`Nor does typing 'solution' for the answer`);
         return Promise.resolve();
     })
     .catch((error) => {
         console.error(error);
     });
 
-let words = [
-  '0x58541283804c', '0x5a24cd629f6b', '0x5dc81f9b3e54',
-  '0x960b15c1feb',  '0xa781dac7e73',  '0x68b076d38b8c',
-  '0x585235332a05', '0xa46503c0c7b',  '0x68b19fe53e2c',
-  '0xa8f4da2aa2b',  '0x593cabbbb42c', '0xe8c375f0a0',
-  '0x9498ca8666d',  '0x94963bd16c3',  '0x8ec41ea9e83',
-  '0xae94bd7f1fa',  '0x917a2047dbb',  '0x5f98dae5217c',
-  '0x593b45ed316c', '0x68afc34bfb24', '0x68b341b98d74',
-  '0xa78469df454',  '0xe8c8abd149',   '0x90377a8d4d6',
-  '0x10c024c6be3',  '0x5a2278be24ec', '0x90377a8e478',
-  '0x6b6a7d223c7b', '0x68b128ecde25', '0x5a241a923d74',
-  '0xa0076d76418',  '0x65f581dc72f4', '0xa78469de0da',
-  '0xa323d8a4bc5',  '0x1105d6693c5',  '0x8ec58eb3ed3',
-  '0x91aa91aabe1',  '0xa3226914ca0',  '0x6998d34efb03',
-  '0x699aecb4063a', '0x585236180014', '0x98c0c84c893',
-  '0xa320eaf4b71',  '0x68b0b1b73e6d', '0x593a92c13a33',
-  '0x65f493253661', '0x977d019a653',  '0xe6c359a91d',
-  '0x9493a0b90dd',  '0xa7841839a9c',  '0x60835097dd33',
-  '0x616d13f45c80', '0x9ec52626d7f',  '0x6423d89252fb',
-  '0x6422e9f98f33', '0x94975ac755d',  '0x5eb041bc1881',
-  '0x8ec1d505d63',  '0xa74e129f3eb',  '0x68af1123b078',
-  '0x1001122b17f',  '0x67c63c6f1fbc'
-]
+let words = ['0x58541283804c', '0x5a24cd629f6b', '0x5dc81f9b3e54', '0x960b15c1feb', '0xa781dac7e73', '0x68b076d38b8c', '0x585235332a05', '0x68b19fe53e2c', '0x593cabbbb42c', '0xe8c375f0a0', '0x9498ca8666d', '0x94963bd16c3', '0x8ec41ea9e83', '0xae94bd7f1fa', '0x5f98dae5217c', '0x593b45ed316c', '0x68afc34bfb24', '0x68b341b98d74', '0xa78469df454', '0x90377a8d4d6', '0x5a2278be24ec', '0x90377a8e478', '0x68b128ecde25', '0x5a241a923d74', '0xa0076d76418', '0x65f581dc72f4', '0xa78469de0da', '0xa323d8a4bc5', '0x1105d6693c5', '0xa3226914ca0', '0x699aecb4063a', '0x585236180014', '0x98c0c84c893', '0xa320eaf4b71', '0x68b0b1b73e6d', '0x65f493253661', '0x977d019a653', '0xe6c359a91d', '0x9493a0b90dd', '0xa7841839a9c', '0x616d13f45c80', '0x94975ac755d', '0x5eb041bc1881', '0x68af1123b078', '0x1001122b17f', '0x67c63c6f1fbc', '0x2a15c3855', '0x2b40baec3', '0x253dfbf9d', '0x38d4fdf29b47b', '0x449c3c86', '0x1b7f9cf655', '0x248cafcbc', '0x1b08673f3a', '0x16d7b2e198', '0x248bbba76', '0x2ad47fa5b', '0x18b5129578', '0x6901220', '0x19a289b8b8', '0x8aeb0ed3392b852c', '0x606b5ff', '0x198f5db9e944e64', '0x2cb15578b', '0x26b6dad48c63fa', '0x27575e49f1b5137d3ca', '0x18e47021c000506', '0x51fbc7bbce003eb995df8c', '0x26c7f006c', '0x6aeae0c', '0x5d8e76c', '0x238452836e4afc', '0x1acd18e78f', '0x26a8b1a2c506d89a1fa', '0x171e0813e9cd6fa', '0x21df1deb2d20fb35a86', '0xa1babd', '0x40f3af19', '0xb5bc36', '0x171aecd1d0070f8e6a75', '0x55d9f485fe07826f4', '0x6cd49f6', '0xa33995', '0x5439aaacdbc36fe6d', '0x28e5bfea13bb15', '0x26ffc6a5ce6af89df8c', '0x55d9f485fe0780f8c', '0x87259b49df2459873f78c', '0x25fc16d38cbedb7378c', '0x27d4b7d50fbab8', '0x9b95de8552d491b8', '0x63d92238ca3335784', '0x6900277', '0x47822829', '0x51291b85c621275a854fd9', '0x1a7257772a10eac', '0x1967878148', '0x5b2b227840443541d', '0x28f7aa4fb', '0x6cd0b80', '0x192beca3c8', '0xa7cd80', '0x43b51366960c5', '0x416effc9ee0c5', '0xb27bd8', '0x198ee92e0bda384', '0x91de9c01b13a63e5', '0x2005b2fd679bd549e68bf064', '0x271ad2886', '0x985adb5aed76bd6261654', '0x98571ff7b337112eef42c', '0x64b72dc117cabef3c', '0x613e54cf58a62dcfe', '0x198f3206e306548', '0x605f66044fbd8e578', '0x28d88f8be0d638', '0x5f359b4d64bafa326e2bec', '0x18603d502d66745401f6', '0x171aecf1c97a9e092364', '0x6120cf7aff731b605', '0x3a898c9d9a057', '0x352f3c50917d79cffd', '0x56f1eeeb76266943d85f89', '0x186074d31238ffb3ba57', '0x38d3b60f09fb4', '0x55f4dda0921412257', '0x2ae207455', '0x198ef7cdf872a05', '0x23910d9a886fc5', '0x19c8529d49e9c45', '0x2a23c536c', '0xa320eaf4b71', '0x186005f0e9eb8d65a0eb', '0x63d83f21ba7138235', '0x18ab6c5f25ea9bc', '0x169ccf329b', '0x90668c35c9c76eed17cfe', '0x185fdc27a101ba019df8', '0x2700bb3a17c4455a874', '0x22db27746448dd', '0x187317a09fb7cfe', '0x19567737276d14d', '0x271e8c400d88bd', '0x2439dca61dad1b1d34691b64', '0x68b0761c708c', '0x6aeb9bf', '0x29050391e', '0x265c15ad4', '0x1674034c96f4104', '0x62559bc', '0x9a32f4170cb43674', '0x29f550430add0a', '0x634849c', '0x18e4c7752d15646', '0x973a4fe693162257', '0x9cc7696cfd69913a', '0xe709ffaadd2120d2b324', '0x5dc344ae577f10b64', '0x23942d73ed35b872a38b852c', '0x3644601e314a7dccdd', '0x2a829109f', '0x2584ce27a13a6b9aa1de7646', '0x6dc6531', '0x9b96ee2cecda13dd', '0x167042096802848c36e584e64', '0x21eb83b11385434446e', '0x1accfa4b98', '0x22edea377d07c14c89d17646', '0x1787665ec45e6ab5e655', '0x3e060d0b3b2e56f6660a4ec', '0x62f789a611bccd41d', '0x18296edb25291a271fd5', '0x26681a3c9a6e7a'];
+
 let today = new Date();
 let utcDate = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
 let nextMidnight = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate() + 1));
@@ -254,6 +296,7 @@ function seededRandom(seed) {
         t ^= t + Math.imul(t ^ t >>> 7, t | 61);
         return ((t ^ t >>> 14) >>> 0) / 4294967296;
     };
+// let randIndex = Math.floor(Math.random(seed) * words.length); //debug purposes (or if u wanna have infinite fun)
 let randIndex = Math.floor(seededRandom(seed) * words.length);
 
 function toChar(str) {
@@ -275,7 +318,7 @@ function updateKeyboardColors(guessHistory, guessCount) {
     // Track best color for each letter
     const keyColors = {};
     for (let i = 1; i <= guessCount; i++) {
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < maxWordLength; j++) {
             const emoji = guessHistory[i][j];
             const letter = table.rows[i].cells[j].textContent.toUpperCase();
             if (!/^[A-Z]$/.test(letter)) continue;
@@ -304,10 +347,7 @@ function updateKeyboardColors(guessHistory, guessCount) {
 function handleSubmit(event) {
     event.preventDefault()
     
-    // solution
-    // Set random seed based on UTC date and pick from words
-    
-    let trueSol = toChar(parseInt(words[randIndex]).toString());
+    let trueSol = toChar(BigInt(words[randIndex]).toString());
 
     // get elements
     var inputField = document.getElementById('input-field');
@@ -315,11 +355,6 @@ function handleSubmit(event) {
 
     var inputData = inputField.value.toLowerCase();
 
-    // validation
-    if (!/[a-zA-Z]+/.test(inputData) || inputData.length != 5) {
-        displayDiv.innerHTML = `<span style='color:red'>There seems to be an error, try again</span>`;
-        return;
-    }
     if (!validWords.includes(inputData)) {
         displayDiv.innerHTML = `<span style='color:red'>${inputData} is not a valid word</span>`;
         return;
@@ -329,7 +364,7 @@ function handleSubmit(event) {
     inputField.value = "";
 
     let charPos = {};
-    for (let i = 0; i < trueSol.length; i++) {
+    for (let i = 0; i < maxWordLength; i++) {
         charPos[i] = inputData[i];
     }
 
@@ -339,7 +374,7 @@ function handleSubmit(event) {
     }
 
     guessCount++;
-    guessHistory[guessCount] = {0:"", 1:"", 2:"", 3:"", 4:"", 5:""};
+    guessHistory[guessCount] = {0:"", 1:"", 2:"", 3:"", 4:"", 5:"", 6:"", 7:"", 8:"", 9:""};
 
     var displayCount = document.getElementById('count');
     if (guessCount === 1) {
@@ -353,16 +388,28 @@ function handleSubmit(event) {
     
     let table = document.getElementById("table");    
     // The Main Calculations
+    
+    let btn = table.rows[guessCount].cells[maxWordLength].querySelector('button')
+    if (trueSol.length != inputData.length) {
+        btn.style.background = "red";
+        guessStatistics["length_red"]++;
+    } else {
+        btn.style.background = "green";
+        guessStatistics["length_green"]++;
+    }
+    
     // green letters
-    for (let i = 0; i < trueSol.length; i++) {
+    for (let i = 0; i < inputData.length; i++) {
         if (trueSol[i] === inputData[i]) {
             let btn = table.rows[guessCount].cells[i].querySelector('button');
             btn.textContent = inputData[i].toUpperCase();
+            // try {btn.textContent = inputData[i].toUpperCase();} catch {}
             btn.style.color = "white";
             btn.style.background = "green";
             btn.style.fontSize = "2em";
             charCount[inputData[i]]--;
             guessHistory[guessCount][i] = "🟩";
+            guessStatistics["green"]++;
             delete charPos[i];
         }
     }
@@ -379,17 +426,19 @@ function handleSubmit(event) {
     // yellow and gray letters
     Object.entries(charPos).forEach(([index, char]) => {
         let btn = table.rows[guessCount].cells[index].querySelector('button');
-        btn.textContent = char.toUpperCase();
+        try {btn.textContent = char.toUpperCase();} catch {}
         btn.style.fontSize = "2em";
         if (trueSol.includes(char) && charCount[char] > 0) {
             btn.style.color = "black";
             btn.style.background = "gold";
             charCount[char]--;
             guessHistory[guessCount][index] = "🟨";
-        } else {
+            guessStatistics["yellow"]++;
+        } else if (index < inputData.length) {
             btn.style.color = "white";
             btn.style.background = "gray";
             guessHistory[guessCount][index] = "⬛";
+            guessStatistics["gray"]++;
         }
     });
     updateKeyboardColors(guessHistory, guessCount);
@@ -415,32 +464,32 @@ function result() {
         
         case "lose":
             var displayCount = document.getElementById('count');
-            displayCount.textContent = `Lose! Word was ${toChar(parseInt(words[randIndex]).toString())}. Don't disappoint him!`
+            displayCount.textContent = `Lose! Word was ${toChar(BigInt(words[randIndex]).toString())}.`
             break;
     }
 
     // banter
     switch (guessCount) {
         case 1:
-            document.getElementById("extra").textContent = "Stop looking at the source code.";
+            document.getElementById("extra").textContent = "Then if a player that can cheat but cannot be proven, then he is not a cheater.";
             break;
         case 2:
-            document.getElementById("extra").textContent = "Lucky!";
+            document.getElementById("extra").textContent = "I think you got lucky, or had a really good first guess";
             break;
         case 3:
-            document.getElementById("extra").textContent = "Noice *meow*, I MEAN, uh, I'm not the one meowing...";
+            document.getElementById("extra").textContent = "Amazingly executed!";
             break;
         case 4:
             document.getElementById("extra").textContent = "Great job!"
             break;
         case 5:
-            document.getElementById("extra").textContent = "Maybe a little bit too close.";
+            document.getElementById("extra").textContent = "Not bad.";
             break;
         case 6:
             if (gameState === "win") {
-                document.getElementById("extra").textContent = "Oh my G sus!";
+                document.getElementById("extra").textContent = "Phew, thought i needed to call the mods.";
             } else {
-                document.getElementById("extra").textContent = "You are going to manacube!";
+                document.getElementById("extra").textContent = "I'm calling the discord mods; they might banish you to manacube!!!";
             }
             break;
     }
@@ -471,15 +520,18 @@ function shareToClipboard() {
         text += `Failed\n`;
     }
 
-    Object.values(guessHistory).forEach( (colors) => {
-        Object.values(colors).forEach((emoji) => {
+    // Object.values(guessHistory).forEach( (colors) => {
+    //     Object.values(colors).forEach((emoji) => {
 
-            text += emoji;
-        })
+    //         text += emoji;
+    //     })
 
-        text += "\n";
-    })
-    text += "https://anon-noob.github.io/pkwordle";
+    //     text += "\n";
+    // })
+
+    text += `Letters: ${guessStatistics.green}x 🟩 - ${guessStatistics.yellow}x 🟨 - ${guessStatistics.gray}x ⬛\nLength:  ${guessStatistics.length_green}x 🟩 - ${guessStatistics.length_red}x 🟥\n`
+
+    text += "https://anon-noob.github.io/";
 
     navigator.clipboard.writeText(text);
     document.getElementById("clipboard").textContent = "Copied to clipboard!";
