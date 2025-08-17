@@ -313,6 +313,14 @@ function toChar(str) {
     return finalResult
 }
 
+function validParkourWord(word) {
+    let l = []
+    for (const element of words) {
+        l.push(toChar(BigInt(element).toString()))
+    }
+    return l.includes(word)
+}
+
 // Update keyboard colors
 function updateKeyboardColors(guessHistory, guessCount) {
     const keyButtons = document.querySelectorAll('.key');
@@ -356,7 +364,7 @@ function handleSubmit(event) {
 
     var inputData = inputField.value.toLowerCase();
 
-    if (!validWords.includes(inputData)) {
+    if (!validWords.includes(inputData) || !validParkourWord(inputData)) {
         displayDiv.innerHTML = `<span style='color:red'>${inputData} is not a valid word</span>`;
         return;
     }
