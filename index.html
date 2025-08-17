@@ -364,7 +364,7 @@ function handleSubmit(event) {
 
     var inputData = inputField.value.toLowerCase();
 
-    if (!validWords.includes(inputData) || !validParkourWord(inputData)) {
+    if (!validWords.includes(inputData) && !validParkourWord(inputData)) {
         displayDiv.innerHTML = `<span style='color:red'>${inputData} is not a valid word</span>`;
         return;
     }
